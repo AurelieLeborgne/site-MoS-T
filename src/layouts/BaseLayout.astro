@@ -26,6 +26,7 @@ const enUrl = getAlternateUrl(Astro.url, 'en');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="google-site-verification" content="hDnRfei1uAwgTJDnGXzzprsh_Dwm0U0svvBLbHpFSS8" />
 
     <!-- SEO -->
     <title>{title}</title>
@@ -44,6 +45,13 @@ const enUrl = getAlternateUrl(Astro.url, 'en');
     <meta property="og:url" content={canonicalUrl.href} />
     <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
     <meta property="og:site_name" content="MoS-T" />
+    <meta property="og:image" content={`${Astro.site?.origin}${base}/logos/og-image.svg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${Astro.site?.origin}${base}/logos/og-image.svg`} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
