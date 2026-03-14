@@ -90,7 +90,7 @@ const timeline = [
   </section>
 
   <!-- About -->
-  <section class="py-20 bg-light dark:bg-darker">
+  <section class="py-12 bg-light dark:bg-darker">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-6">
@@ -105,9 +105,9 @@ const timeline = [
   </section>
 
   <!-- Keywords -->
-  <section class="py-16 bg-white dark:bg-dark">
+  <section class="py-10 bg-white dark:bg-dark">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold text-dark dark:text-white mb-8">{t(lang, 'home.keywords_title')}</h2>
+      <h2 class="text-2xl font-bold text-dark dark:text-white mb-6">{t(lang, 'home.keywords_title')}</h2>
       <div class="flex flex-wrap gap-3 justify-center">
         {keywords.map((kw: string) => (
           <span class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/10 to-lime-500/10 border border-primary-500/20 text-primary-700 dark:text-primary-300 font-medium text-sm">
@@ -119,15 +119,15 @@ const timeline = [
   </section>
 
   <!-- Timeline -->
-  <section class="py-20 bg-light dark:bg-darker">
+  <section class="py-12 bg-light dark:bg-darker">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white text-center mb-10">
         {t(lang, 'home.timeline_title')}
       </h2>
       <div class="relative">
         <!-- Line -->
         <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-lime-500"></div>
-        <div class="space-y-8 md:space-y-12">
+        <div class="space-y-6 md:space-y-8">
           {timeline.map((item, i) => (
             <div class={`flex items-center gap-6 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
               <div class={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>

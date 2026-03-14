@@ -2,6 +2,8 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* MoS-T Brand Colors */
   --color-primary-50: #e6fdf6;
