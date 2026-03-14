@@ -10,9 +10,11 @@ interface Props {
 
 const { name, role, affiliation, photo, url, description } = Astro.props;
 const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
+const Tag = url ? 'a' : 'div';
+const linkProps = url ? { href: url, target: '_blank', rel: 'noopener noreferrer' } : {};
 ---
 
-<div class="group bg-white dark:bg-dark rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-1 transition-all duration-300">
+<Tag {...linkProps} class="group block bg-white dark:bg-dark rounded-2xl p-6 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5 hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
   <div class="flex items-center gap-4 mb-3">
     <div class="relative w-16 h-16 rounded-full overflow-hidden shrink-0 ring-2 ring-primary-500/20 group-hover:ring-primary-500/50 transition-all">
       <img
@@ -27,13 +29,7 @@ const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
       </div>
     </div>
     <div class="min-w-0">
-      {url ? (
-        <a href={url} target="_blank" rel="noopener noreferrer" class="text-lg font-bold text-dark dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors truncate block">
-          {name}
-        </a>
-      ) : (
-        <h3 class="text-lg font-bold text-dark dark:text-white truncate">{name}</h3>
-      )}
+      <h3 class="text-lg font-bold text-dark dark:text-white group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors truncate">{name}</h3>
       <p class="text-primary-600 dark:text-primary-400 text-sm font-medium">{role}</p>
       <p class="text-gray-500 dark:text-gray-400 text-sm truncate">{affiliation}</p>
     </div>
@@ -41,4 +37,4 @@ const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
   {description && (
     <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{description}</p>
   )}
-</div>
+</Tag>
