@@ -1,0 +1,89 @@
+{
+  "site": {
+    "title": "MoS-T — Modeling Spatio-Temporal Series",
+    "description": "ANR Project MoS-T: Modeling Spatio-Temporal Series using graphs and graph neural networks."
+  },
+  "nav": {
+    "home": "Home",
+    "research": "Research",
+    "team": "Team",
+    "publications": "Publications",
+    "events": "Events",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Modeling Spatio-Temporal Series",
+    "description": "ANR Project (2022–2026) — Modeling spatio-temporal series using graphs and graph neural networks.",
+    "cta_publications": "View publications",
+    "cta_research": "Discover the project"
+  },
+  "home": {
+    "about_title": "About the project",
+    "about_text": "The MoS-T project aims to develop innovative methods for modeling spatio-temporal series based on graphs and graph neural networks (GNN). The goal is to propose generic approaches leveraging spatial and temporal relationships in data to improve prediction, classification, and anomaly detection.",
+    "keywords_title": "Keywords",
+    "keywords": ["Time series", "Spatio-temporal data", "Graphs", "Graph neural networks", "GNN", "Deep learning", "Prediction", "Classification"],
+    "timeline_title": "Project timeline",
+    "partners_title": "Partners"
+  },
+  "research": {
+    "title": "Research",
+    "objectives_title": "Objectives",
+    "objectives": [
+      "Propose graph models to represent spatio-temporal relationships in data",
+      "Develop GNN architectures tailored to spatio-temporal series",
+      "Validate the proposed approaches on real-world use cases (environment, health, transport)"
+    ],
+    "wp_title": "Research axes",
+    "wp1_title": "Spatio-temporal graph construction",
+    "wp1_desc": "Development of methods to automatically construct graphs representing spatial and temporal relationships in data.",
+    "wp2_title": "Graph neural networks",
+    "wp2_desc": "Design of GNN architectures tailored to processing spatio-temporal series structured as graphs.",
+    "wp3_title": "Applications and validation",
+    "wp3_desc": "Validation of the approaches on real use cases in the fields of environment, health, and transport."
+  },
+  "team": {
+    "title": "Team",
+    "permanent": "Permanent members",
+    "non_permanent": "Non-permanent members"
+  },
+  "publications": {
+    "title": "Publications",
+    "filter_all": "All",
+    "filter_journal": "Journals",
+    "filter_conf_int": "International conferences",
+    "filter_conf_nat": "National conferences",
+    "no_results": "No publications found.",
+    "source_hal": "Data automatically imported from HAL."
+  },
+  "events": {
+    "title": "Events",
+    "upcoming": "Upcoming",
+    "past": "Past"
+  },
+  "resources": {
+    "title": "Resources",
+    "code_title": "Open-source code",
+    "datasets_title": "Datasets",
+    "coming_soon": "Coming soon."
+  },
+  "contact": {
+    "title": "Contact",
+    "pi_label": "Principal investigator",
+    "email_label": "Email",
+    "address_label": "Address",
+    "anr_ref": "ANR Reference: ANR-21-CE23-0015"
+  },
+  "footer": {
+    "funded_by": "Funded by",
+    "anr_ref": "ANR-21-CE23-0015",
+    "copyright": "© 2022–2026 MoS-T Project. All rights reserved."
+  },
+  "common": {
+    "read_more": "Read more",
+    "back": "Back",
+    "language": "Language",
+    "dark_mode": "Dark mode",
+    "light_mode": "Light mode"
+  }
+}

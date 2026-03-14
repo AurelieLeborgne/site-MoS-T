@@ -1,0 +1,89 @@
+{
+  "site": {
+    "title": "MoS-T — Modélisation de Séries Spatio-Temporelles",
+    "description": "Projet ANR MoS-T : Modélisation de Séries Spatio-Temporelles par des graphes et des réseaux de neurones sur graphe."
+  },
+  "nav": {
+    "home": "Accueil",
+    "research": "Recherche",
+    "team": "Équipe",
+    "publications": "Publications",
+    "events": "Événements",
+    "resources": "Ressources",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Modélisation de Séries Spatio-Temporelles",
+    "description": "Projet ANR (2022–2026) — Modélisation de séries spatio-temporelles par des graphes et des réseaux de neurones sur graphe.",
+    "cta_publications": "Voir les publications",
+    "cta_research": "Découvrir le projet"
+  },
+  "home": {
+    "about_title": "À propos du projet",
+    "about_text": "Le projet MoS-T vise à développer des méthodes innovantes pour la modélisation de séries spatio-temporelles en s'appuyant sur des graphes et des réseaux de neurones sur graphe (GNN). L'objectif est de proposer des approches génériques exploitant les relations spatiales et temporelles entre les données pour améliorer la prédiction, la classification et la détection d'anomalies.",
+    "keywords_title": "Mots-clés",
+    "keywords": ["Séries temporelles", "Données spatio-temporelles", "Graphes", "Réseaux de neurones sur graphe", "GNN", "Apprentissage profond", "Prediction", "Classification"],
+    "timeline_title": "Chronologie du projet",
+    "partners_title": "Partenaires"
+  },
+  "research": {
+    "title": "Recherche",
+    "objectives_title": "Objectifs",
+    "objectives": [
+      "Proposer des modèles de graphes pour représenter les relations spatio-temporelles dans les données",
+      "Développer des architectures GNN adaptées aux séries spatio-temporelles",
+      "Valider les approches proposées sur des cas d'usage concrets (environnement, santé, transport)"
+    ],
+    "wp_title": "Axes de recherche",
+    "wp1_title": "Construction de graphes spatio-temporels",
+    "wp1_desc": "Développement de méthodes pour construire automatiquement des graphes représentant les relations spatiales et temporelles dans les données.",
+    "wp2_title": "Réseaux de neurones sur graphe",
+    "wp2_desc": "Conception d'architectures GNN adaptées au traitement de séries spatio-temporelles structurées en graphes.",
+    "wp3_title": "Applications et validation",
+    "wp3_desc": "Validation des approches sur des cas d'usage réels dans les domaines de l'environnement, de la santé et du transport."
+  },
+  "team": {
+    "title": "Équipe",
+    "permanent": "Membres permanents",
+    "non_permanent": "Membres non-permanents"
+  },
+  "publications": {
+    "title": "Publications",
+    "filter_all": "Toutes",
+    "filter_journal": "Revues",
+    "filter_conf_int": "Conférences internationales",
+    "filter_conf_nat": "Conférences nationales",
+    "no_results": "Aucune publication trouvée.",
+    "source_hal": "Données importées automatiquement depuis HAL."
+  },
+  "events": {
+    "title": "Événements",
+    "upcoming": "À venir",
+    "past": "Passés"
+  },
+  "resources": {
+    "title": "Ressources",
+    "code_title": "Code open-source",
+    "datasets_title": "Jeux de données",
+    "coming_soon": "Disponible prochainement."
+  },
+  "contact": {
+    "title": "Contact",
+    "pi_label": "Responsable scientifique",
+    "email_label": "Email",
+    "address_label": "Adresse",
+    "anr_ref": "Référence ANR : ANR-21-CE23-0015"
+  },
+  "footer": {
+    "funded_by": "Projet financé par",
+    "anr_ref": "ANR-21-CE23-0015",
+    "copyright": "© 2022–2026 Projet MoS-T. Tous droits réservés."
+  },
+  "common": {
+    "read_more": "En savoir plus",
+    "back": "Retour",
+    "language": "Langue",
+    "dark_mode": "Mode sombre",
+    "light_mode": "Mode clair"
+  }
+}

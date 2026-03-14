@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { type Lang, t, getAlternateUrl } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang: Lang;
+  currentPath?: string;
+}
+
+const { lang, currentPath = '/' } = Astro.props;
+const title = Astro.props.title || t(lang, 'site.title') as string;
+const description = Astro.props.description || t(lang, 'site.description') as string;
+const base = '/site-MoS-T';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const frUrl = getAlternateUrl(Astro.url, 'fr');
+const enUrl = getAlternateUrl(Astro.url, 'en');
+---
+
+<!DOCTYPE html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl.href} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="fr" href={`${Astro.site?.origin}${frUrl}`} />
+    <link rel="alternate" hreflang="en" href={`${Astro.site?.origin}${enUrl}`} />
+    <link rel="alternate" hreflang="x-default" href={`${Astro.site?.origin}${frUrl}`} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_US'} />
+    <meta property="og:site_name" content="MoS-T" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#04E4AC" />
+
+    <!-- JSON-LD Structured Data -->
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-light text-dark dark:bg-darker dark:text-gray-100 font-sans antialiased transition-colors duration-300">
+    <Navbar lang={lang} currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+
+    <!-- Dark mode script (inline, no JS bundle) -->
+    <script is:inline>
+      (function() {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </body>
+</html>

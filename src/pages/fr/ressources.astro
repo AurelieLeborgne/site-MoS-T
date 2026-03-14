@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/utils';
+
+const lang = 'fr';
+---
+
+<BaseLayout lang={lang} currentPath="/ressources/" title={`${t(lang, 'resources.title')} — MoS-T`}>
+  <div class="pt-24 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-4">
+        {t(lang, 'resources.title')}
+      </h1>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-lime-500 rounded-full"></div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Code -->
+        <div class="bg-white dark:bg-dark rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-lime-500 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-dark dark:text-white mb-4">{t(lang, 'resources.code_title')}</h2>
+          <p class="text-gray-500 dark:text-gray-400">{t(lang, 'resources.coming_soon')}</p>
+        </div>
+
+        <!-- Datasets -->
+        <div class="bg-white dark:bg-dark rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-lime-500 to-primary-500 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-dark dark:text-white mb-4">{t(lang, 'resources.datasets_title')}</h2>
+          <p class="text-gray-500 dark:text-gray-400">{t(lang, 'resources.coming_soon')}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MemberCard from '../../components/MemberCard.astro';
+import { t } from '../../i18n/utils';
+
+const lang = 'fr';
+const base = '/site-MoS-T';
+
+const permanentMembers = [
+  {
+    name: 'Aurélie Leborgne',
+    role: 'Responsable scientifique',
+    affiliation: 'ICube, Université de Strasbourg',
+    photo: `${base}/images/members/Aurelie.jpg`,
+    url: '',
+  },
+  {
+    name: 'Antoine Vacavant',
+    role: 'Co-responsable',
+    affiliation: 'Institut Pascal, Université Clermont Auvergne',
+    photo: `${base}/images/members/Antoine.jpg`,
+    url: '',
+  },
+  {
+    name: 'Antonio Capobianco',
+    role: 'Chercheur',
+    affiliation: 'ICube, Université de Strasbourg',
+    photo: `${base}/images/members/Antonio.jpg`,
+    url: '',
+  },
+  {
+    name: 'Céline Meillier',
+    role: 'Chercheuse',
+    affiliation: 'ICube, Université de Strasbourg',
+    photo: `${base}/images/members/Celine.png`,
+    url: '',
+  },
+  {
+    name: 'Thomas Lampert',
+    role: 'Chercheur',
+    affiliation: 'ICube, Université de Strasbourg',
+    photo: `${base}/images/members/Tom.jpg`,
+    url: '',
+  },
+  {
+    name: 'Florence Le Ber',
+    role: 'Chercheuse',
+    affiliation: 'ICube, ENGEES',
+    photo: `${base}/images/members/flbweb.png`,
+    url: '',
+  },
+];
+
+const nonPermanentMembers = [
+  {
+    name: 'Assaad Zeghina',
+    role: 'Doctorant',
+    affiliation: 'ICube, Université de Strasbourg',
+    photo: `${base}/images/members/Assaad.jpg`,
+    url: '',
+  },
+];
+---
+
+<BaseLayout lang={lang} currentPath="/equipe/" title={`${t(lang, 'team.title')} — MoS-T`}>
+  <div class="pt-24 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-4">
+        {t(lang, 'team.title')}
+      </h1>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-lime-500 rounded-full"></div>
+    </section>
+
+    <!-- Permanent members -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h2 class="text-2xl md:text-3xl font-bold text-dark dark:text-white mb-8">
+        {t(lang, 'team.permanent')}
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {permanentMembers.map((member) => (
+          <MemberCard {...member} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Non-permanent members -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-dark dark:text-white mb-8">
+        {t(lang, 'team.non_permanent')}
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {nonPermanentMembers.map((member) => (
+          <MemberCard {...member} />
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

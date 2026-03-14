@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/utils';
+
+const lang = 'fr';
+
+const events = [
+  { date: '2022-03', title: 'Réunion de lancement du projet MoS-T', type: 'meeting' },
+  { date: '2023-06', title: 'Réunion d\'avancement — Strasbourg', type: 'meeting' },
+  { date: '2024-01', title: 'Réunion d\'avancement — Clermont-Ferrand', type: 'meeting' },
+  { date: '2024-05', title: 'Publication Neurocomputing — Survey Deep Learning on Spatiotemporal Graphs', type: 'publication' },
+];
+---
+
+<BaseLayout lang={lang} currentPath="/evenements/" title={`${t(lang, 'events.title')} — MoS-T`}>
+  <div class="pt-24 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-4">
+        {t(lang, 'events.title')}
+      </h1>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-lime-500 rounded-full"></div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-lime-500"></div>
+        <div class="space-y-8">
+          {events.reverse().map((event) => (
+            <div class="relative pl-12">
+              <div class="absolute left-2 top-2 w-5 h-5 rounded-full bg-primary-500 border-4 border-light dark:border-darker"></div>
+              <div class="bg-white dark:bg-dark rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+                <time class="text-sm font-mono text-primary-500 dark:text-primary-400">{event.date}</time>
+                <h3 class="text-lg font-semibold text-dark dark:text-white mt-1">{event.title}</h3>
+                <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium bg-primary-500/10 text-primary-600 dark:text-primary-400">
+                  {event.type === 'meeting' ? 'Réunion' : event.type === 'publication' ? 'Publication' : 'Événement'}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

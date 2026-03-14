@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/utils';
+
+const lang = 'en';
+const keywords = t(lang, 'home.keywords') as string[];
+
+const timeline = [
+  { year: '2022', label: 'Project kickoff' },
+  { year: '2023', label: 'First results, publications' },
+  { year: '2024', label: 'GNN developments, conferences' },
+  { year: '2025', label: 'Application validation, datasets' },
+  { year: '2026', label: 'Finalization, dissemination' },
+];
+---
+
+<BaseLayout lang={lang} currentPath="/">
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ResearchProject",
+      "name": "MoS-T",
+      "description": t(lang, 'site.description'),
+      "url": "https://aurelieleborgne.github.io/site-MoS-T/en/",
+      "funder": {
+        "@type": "Organization",
+        "name": "Agence Nationale de la Recherche (ANR)",
+        "url": "https://anr.fr/"
+      },
+      "identifier": "ANR-21-CE23-0015",
+      "startDate": "2022",
+      "endDate": "2026"
+    })} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="relative min-h-[80vh] flex items-center overflow-hidden pt-16">
+    <div class="absolute inset-0 bg-gradient-to-br from-dark via-primary-900 to-darker"></div>
+    <div class="absolute inset-0 opacity-20">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="graph-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+            <circle cx="40" cy="40" r="2" fill="#04E4AC" />
+            <circle cx="0" cy="0" r="1.5" fill="#B8F231" />
+            <circle cx="80" cy="0" r="1.5" fill="#B8F231" />
+            <circle cx="0" cy="80" r="1.5" fill="#B8F231" />
+            <circle cx="80" cy="80" r="1.5" fill="#B8F231" />
+            <line x1="0" y1="0" x2="40" y2="40" stroke="#04E4AC" stroke-width="0.5" opacity="0.5" />
+            <line x1="80" y1="0" x2="40" y2="40" stroke="#04E4AC" stroke-width="0.5" opacity="0.5" />
+            <line x1="0" y1="80" x2="40" y2="40" stroke="#B8F231" stroke-width="0.5" opacity="0.3" />
+            <line x1="80" y1="80" x2="40" y2="40" stroke="#B8F231" stroke-width="0.5" opacity="0.3" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#graph-pattern)" />
+      </svg>
+    </div>
+    <div class="absolute top-20 left-10 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-lime-500/15 rounded-full blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div class="mb-8">
+        <img src="/site-MoS-T/logos/most-blanc.svg" alt="MoS-T" class="h-16 md:h-20 mx-auto" width="300" height="80" />
+      </div>
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+        {t(lang, 'hero.subtitle')}
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+        {t(lang, 'hero.description')}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/site-MoS-T/en/research/"
+          class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary-500 to-lime-500 text-dark font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          {t(lang, 'hero.cta_research')}
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a
+          href="/site-MoS-T/en/publications/"
+          class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+        >
+          {t(lang, 'hero.cta_publications')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-20 bg-light dark:bg-darker">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-6">
+          {t(lang, 'home.about_title')}
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-lime-500 mx-auto mb-8 rounded-full"></div>
+        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          {t(lang, 'home.about_text')}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <section class="py-16 bg-white dark:bg-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-dark dark:text-white mb-8">{t(lang, 'home.keywords_title')}</h2>
+      <div class="flex flex-wrap gap-3 justify-center">
+        {keywords.map((kw: string) => (
+          <span class="px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/10 to-lime-500/10 border border-primary-500/20 text-primary-700 dark:text-primary-300 font-medium text-sm">
+            {kw}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-20 bg-light dark:bg-darker">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark dark:text-white text-center mb-12">
+        {t(lang, 'home.timeline_title')}
+      </h2>
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-lime-500"></div>
+        <div class="space-y-8 md:space-y-12">
+          {timeline.map((item, i) => (
+            <div class={`flex items-center gap-6 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div class={`flex-1 ${i % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
+                <div class="bg-white dark:bg-dark rounded-xl p-6 shadow-lg shadow-primary-500/5 border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300">
+                  <span class="inline-block text-2xl font-bold bg-gradient-to-r from-primary-500 to-lime-500 bg-clip-text text-transparent mb-2">{item.year}</span>
+                  <p class="text-gray-600 dark:text-gray-300">{item.label}</p>
+                </div>
+              </div>
+              <div class="hidden md:flex w-4 h-4 rounded-full bg-primary-500 border-4 border-light dark:border-darker shrink-0 relative z-10"></div>
+              <div class="flex-1 hidden md:block"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
