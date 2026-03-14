@@ -4,11 +4,18 @@ import { t } from '../../i18n/utils';
 
 const lang = 'fr';
 
+const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+function formatDate(d: string) {
+  const [y, m] = d.split('-');
+  return `${months[parseInt(m, 10) - 1]} ${y}`;
+}
+
 const events = [
   { date: '2022-03', title: 'Réunion de lancement du projet MoS-T', type: 'meeting' },
   { date: '2023-06', title: 'Réunion d\'avancement — Strasbourg', type: 'meeting' },
-  { date: '2024-01', title: 'Réunion d\'avancement — Clermont-Ferrand', type: 'meeting' },
   { date: '2024-05', title: 'Publication Neurocomputing — Survey Deep Learning on Spatiotemporal Graphs', type: 'publication' },
+  { date: '2025-03', title: 'Réunion d\'avancement — Strasbourg', type: 'meeting' },
+  { date: '2026-03', title: 'Workshop de fin de projet — Analyse et gestion des données médicales spatio-temporelles (Villejuif)', type: 'workshop' },
 ];
 ---
 
@@ -29,10 +36,10 @@ const events = [
             <div class="relative pl-12">
               <div class="absolute left-2 top-2 w-5 h-5 rounded-full bg-primary-500 border-4 border-light dark:border-darker"></div>
               <div class="bg-white dark:bg-dark rounded-xl p-6 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
-                <time class="text-sm font-mono text-primary-500 dark:text-primary-400">{event.date}</time>
+                <time class="text-sm font-medium text-primary-500 dark:text-primary-400">{formatDate(event.date)}</time>
                 <h3 class="text-lg font-semibold text-dark dark:text-white mt-1">{event.title}</h3>
                 <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium bg-primary-500/10 text-primary-600 dark:text-primary-400">
-                  {event.type === 'meeting' ? 'Réunion' : event.type === 'publication' ? 'Publication' : 'Événement'}
+                  {event.type === 'meeting' ? 'Réunion' : event.type === 'publication' ? 'Publication' : event.type === 'workshop' ? 'Workshop' : 'Événement'}
                 </span>
               </div>
             </div>
