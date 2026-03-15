@@ -172,7 +172,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
     document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowLeft') showPage(current - 1);
       if (e.key === 'ArrowRight') showPage(current + 1);
-      if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+      if (e.key === 'Escape' && isFullscreen()) exitFullscreen();
     });
 
     // Swipe support
@@ -188,19 +188,33 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
     }, { passive: true });
 
     // Fullscreen
+    function enterFullscreen(el) {
+      if (el.requestFullscreen) return el.requestFullscreen();
+      if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+      return Promise.reject();
+    }
+    function exitFullscreen() {
+      if (document.exitFullscreen) return document.exitFullscreen();
+      if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+    }
+    function isFullscreen() {
+      return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    }
+
     fsBtn.addEventListener('click', function() {
-      if (!document.fullscreenElement) {
-        reader.requestFullscreen().catch(function() {});
+      if (!isFullscreen()) {
+        enterFullscreen(reader).catch(function() {});
       } else {
-        document.exitFullscreen();
+        exitFullscreen();
       }
     });
 
-    document.addEventListener('fullscreenchange', function() {
-      var isFs = !!document.fullscreenElement;
-      reader.classList.toggle('fullscreen-reader', isFs);
+    function onFsChange() {
+      var isFs = isFullscreen();
       if (fsLabel) fsLabel.textContent = isFs ? exitFullscreenLabel : fullscreenLabel;
-    });
+    }
+    document.addEventListener('fullscreenchange', onFsChange);
+    document.addEventListener('webkitfullscreenchange', onFsChange);
 
     // Init
     showPage(0);
