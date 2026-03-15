@@ -75,7 +75,9 @@
     "prev": "Previous page",
     "next": "Next page",
     "page_label": "Page",
-    "cta": "Discover in comics"
+    "cta": "Discover in comics",
+    "fullscreen": "Fullscreen",
+    "exit_fullscreen": "Exit fullscreen"
   },
   "contact": {
     "title": "Contact",

@@ -75,7 +75,9 @@
     "prev": "Planche précédente",
     "next": "Planche suivante",
     "page_label": "Planche",
-    "cta": "Découvrir en BD"
+    "cta": "Découvrir en BD",
+    "fullscreen": "Plein écran",
+    "exit_fullscreen": "Quitter le plein écran"
   },
   "contact": {
     "title": "Contact",

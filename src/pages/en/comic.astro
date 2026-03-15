@@ -13,48 +13,69 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
 ---
 
 <BaseLayout lang={lang} currentPath="/comic/" title={`${t(lang, 'comic.title')} — MoS-T`} description={t(lang, 'comic.description') as string}>
-  <div class="pt-24 pb-20">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-4">
-        {t(lang, 'comic.title')}
-      </h1>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-lime-500 rounded-full mb-4"></div>
-      <p class="text-lg text-gray-600 dark:text-gray-300">{t(lang, 'comic.description')}</p>
+  <div class="pt-20 pb-10 md:pt-24 md:pb-16">
+    <!-- Compact header -->
+    <section class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 mb-4 md:mb-6 flex items-center justify-between flex-wrap gap-2">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-bold text-dark dark:text-white">
+          {t(lang, 'comic.title')}
+        </h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 hidden sm:block">{t(lang, 'comic.description')}</p>
+      </div>
+      <button
+        id="comic-fullscreen"
+        type="button"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        aria-label={t(lang, 'comic.fullscreen') as string}
+      >
+        <svg id="icon-expand" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+        </svg>
+        <span class="hidden sm:inline" id="fullscreen-label">{t(lang, 'comic.fullscreen')}</span>
+      </button>
     </section>
 
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div id="comic-reader" class="relative">
-        <div class="relative bg-white dark:bg-dark rounded-2xl border border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden">
+    <!-- Comic reader -->
+    <section id="comic-reader" class="max-w-6xl mx-auto px-1 sm:px-4 lg:px-8">
+      <div class="relative">
+        <!-- Comic display -->
+        <div class="relative bg-white dark:bg-dark rounded-xl sm:rounded-2xl border border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden">
+          <!-- Navigation arrows — large touch targets -->
           <button
             id="comic-prev"
             type="button"
-            class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-dark/60 hover:bg-dark/80 text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            class="absolute left-0 top-0 bottom-0 z-10 w-12 sm:w-16 md:w-20 flex items-center justify-start pl-1 sm:pl-3 opacity-0 hover:opacity-100 focus:opacity-100 transition-opacity duration-200 disabled:opacity-0 disabled:cursor-not-allowed group"
             aria-label={t(lang, 'comic.prev') as string}
           >
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
+            <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-dark/70 group-hover:bg-dark/90 text-white flex items-center justify-center backdrop-blur-sm transition-all">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </span>
           </button>
 
           <button
             id="comic-next"
             type="button"
-            class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-dark/60 hover:bg-dark/80 text-white flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            class="absolute right-0 top-0 bottom-0 z-10 w-12 sm:w-16 md:w-20 flex items-center justify-end pr-1 sm:pr-3 opacity-0 hover:opacity-100 focus:opacity-100 transition-opacity duration-200 disabled:opacity-0 disabled:cursor-not-allowed group"
             aria-label={t(lang, 'comic.next') as string}
           >
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
+            <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-dark/70 group-hover:bg-dark/90 text-white flex items-center justify-center backdrop-blur-sm transition-all">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
           </button>
 
-          <div id="comic-canvas" class="flex items-center justify-center min-h-[300px] md:min-h-[500px]">
+          <!-- Image container — fixed aspect ratio to prevent layout shift -->
+          <div id="comic-canvas" class="relative bg-gray-50 dark:bg-gray-900" style="aspect-ratio: 4961 / 3508;">
             {pages.map((page, i) => (
               <img
                 src={page.src}
                 alt={page.alt}
                 class:list={[
-                  'comic-page w-full h-auto select-none',
-                  i === 0 ? '' : 'hidden',
+                  'comic-page absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-300',
+                  i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
                 ]}
                 data-page={i}
                 loading={i < 2 ? 'eager' : 'lazy'}
@@ -64,30 +85,36 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
           </div>
         </div>
 
-        <div class="mt-4 flex flex-col items-center gap-3">
-          <div class="flex items-center gap-4">
-            <span id="comic-counter" class="text-sm font-semibold text-dark dark:text-white" aria-live="polite">
-              1 {t(lang, 'comic.page_of')} {totalPages}
-            </span>
-          </div>
+        <!-- Controls bar -->
+        <div class="mt-3 flex items-center justify-center gap-3 sm:gap-4 flex-wrap">
+          <!-- Counter -->
+          <span id="comic-counter" class="text-sm font-semibold text-dark dark:text-white tabular-nums" aria-live="polite">
+            1 {t(lang, 'comic.page_of')} {totalPages}
+          </span>
 
-          <div class="flex gap-1.5 flex-wrap justify-center" role="group" aria-label="Pages">
+          <!-- Dot navigation — 44px touch targets -->
+          <div class="flex gap-1 flex-wrap justify-center" role="group" aria-label="Pages">
             {pages.map((_, i) => (
               <button
                 data-goto={i}
                 type="button"
                 class:list={[
-                  'comic-dot w-2.5 h-2.5 rounded-full transition-all duration-200',
+                  'comic-dot w-8 h-8 sm:w-6 sm:h-6 flex items-center justify-center',
+                ]}
+                aria-label={`${t(lang, 'comic.page_label')} ${i + 1}`}
+              >
+                <span class:list={[
+                  'block w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200',
                   i === 0
                     ? 'bg-primary-500 scale-125'
                     : 'bg-gray-300 dark:bg-gray-600 hover:bg-primary-400',
-                ]}
-                aria-label={`${t(lang, 'comic.page_label')} ${i + 1}`}
-              />
+                ]} />
+              </button>
             ))}
           </div>
 
-          <div class="w-full max-w-md h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <!-- Progress bar -->
+          <div class="w-full max-w-xs h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
             <div id="comic-progress" class="h-full bg-gradient-to-r from-primary-500 to-lime-500 rounded-full transition-all duration-300" style={`width: ${100 / totalPages}%`}></div>
           </div>
         </div>
@@ -96,55 +123,86 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
   </div>
 </BaseLayout>
 
-<script is:inline define:vars={{ totalPages, pageOfLabel: t('en', 'comic.page_of') }}>
+<script is:inline define:vars={{ totalPages, pageOfLabel: t('en', 'comic.page_of'), fullscreenLabel: t('en', 'comic.fullscreen'), exitFullscreenLabel: t('en', 'comic.exit_fullscreen') }}>
   (function() {
     let current = 0;
     const pages = document.querySelectorAll('.comic-page');
     const dots = document.querySelectorAll('.comic-dot');
+    const dotInners = document.querySelectorAll('.comic-dot > span');
     const prevBtn = document.getElementById('comic-prev');
     const nextBtn = document.getElementById('comic-next');
     const counter = document.getElementById('comic-counter');
     const progress = document.getElementById('comic-progress');
+    const reader = document.getElementById('comic-reader');
+    const fsBtn = document.getElementById('comic-fullscreen');
+    const fsLabel = document.getElementById('fullscreen-label');
 
     function showPage(index) {
       if (index < 0 || index >= totalPages) return;
-      pages.forEach((p, i) => p.classList.toggle('hidden', i !== index));
-      dots.forEach((d, i) => {
+      pages.forEach(function(p, i) {
+        if (i === index) {
+          p.classList.remove('opacity-0', 'pointer-events-none');
+          p.classList.add('opacity-100');
+        } else {
+          p.classList.remove('opacity-100');
+          p.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+      dotInners.forEach((d, i) => {
         d.classList.toggle('bg-primary-500', i === index);
         d.classList.toggle('scale-125', i === index);
         d.classList.toggle('bg-gray-300', i !== index);
         d.classList.toggle('dark:bg-gray-600', i !== index);
       });
       current = index;
-      counter.textContent = `${current + 1} ${pageOfLabel} ${totalPages}`;
-      progress.style.width = `${((current + 1) / totalPages) * 100}%`;
+      counter.textContent = (current + 1) + ' ' + pageOfLabel + ' ' + totalPages;
+      progress.style.width = (((current + 1) / totalPages) * 100) + '%';
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current === totalPages - 1;
     }
 
-    prevBtn.addEventListener('click', () => showPage(current - 1));
-    nextBtn.addEventListener('click', () => showPage(current + 1));
+    prevBtn.addEventListener('click', function() { showPage(current - 1); });
+    nextBtn.addEventListener('click', function() { showPage(current + 1); });
 
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => showPage(parseInt(dot.dataset.goto)));
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() { showPage(parseInt(dot.dataset.goto)); });
     });
 
-    document.addEventListener('keydown', (e) => {
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowLeft') showPage(current - 1);
       if (e.key === 'ArrowRight') showPage(current + 1);
+      if (e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
     });
 
-    let touchStartX = 0;
-    const canvas = document.getElementById('comic-canvas');
-    canvas.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-    canvas.addEventListener('touchend', (e) => {
-      const diff = e.changedTouches[0].screenX - touchStartX;
+    // Swipe support
+    var touchStartX = 0;
+    var canvas = document.getElementById('comic-canvas');
+    canvas.addEventListener('touchstart', function(e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    canvas.addEventListener('touchend', function(e) {
+      var diff = e.changedTouches[0].screenX - touchStartX;
       if (Math.abs(diff) > 50) {
         if (diff > 0) showPage(current - 1);
         else showPage(current + 1);
       }
     }, { passive: true });
 
+    // Fullscreen
+    fsBtn.addEventListener('click', function() {
+      if (!document.fullscreenElement) {
+        reader.requestFullscreen().catch(function() {});
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    document.addEventListener('fullscreenchange', function() {
+      var isFs = !!document.fullscreenElement;
+      reader.classList.toggle('fullscreen-reader', isFs);
+      if (fsLabel) fsLabel.textContent = isFs ? exitFullscreenLabel : fullscreenLabel;
+    });
+
+    // Init
     showPage(0);
   })();
 </script>
