@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "MoS-T — Motifs Spatio-Temporels",
-    "description": "Projet ANR MoS-T : Recherche et visualisation de motifs spatio-temporels fréquents dans un grand graphe."
+    "description": "Projet ANR MoS-T (MoST) : Recherche et visualisation de motifs spatio-temporels fréquents dans un grand graphe."
   },
   "nav": {
     "home": "Accueil",

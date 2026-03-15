@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "MoS-T — Spatio-Temporal Patterns",
-    "description": "ANR Project MoS-T: Mining and visualization of frequent spatio-temporal patterns in large graphs."
+    "description": "ANR Project MoS-T (MoST): Mining and visualization of frequent spatio-temporal patterns in large graphs."
   },
   "nav": {
     "home": "Home",
