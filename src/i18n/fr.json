@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "MoS-T — Modélisation de Séries Spatio-Temporelles",
-    "description": "Projet ANR MoS-T : Modélisation de Séries Spatio-Temporelles par des graphes et des réseaux de neurones sur graphe."
+    "title": "MoS-T — Motifs Spatio-Temporels",
+    "description": "Projet ANR MoS-T : Recherche et visualisation de motifs spatio-temporels fréquents dans un grand graphe."
   },
   "nav": {
     "home": "Accueil",
@@ -10,17 +10,18 @@
     "publications": "Publications",
     "events": "Événements",
     "resources": "Ressources",
+    "comic": "BD",
     "contact": "Contact"
   },
   "hero": {
-    "subtitle": "Modélisation de Séries Spatio-Temporelles",
-    "description": "Projet ANR (2022–2026) — Modélisation de séries spatio-temporelles par des graphes et des réseaux de neurones sur graphe.",
+    "subtitle": "Motifs Spatio-Temporels",
+    "description": "Projet ANR (oct. 2021 – juin 2026) — Recherche et visualisation de motifs spatio-temporels fréquents dans un grand graphe.",
     "cta_publications": "Voir les publications",
     "cta_research": "Découvrir le projet"
   },
   "home": {
     "about_title": "À propos du projet",
-    "about_text": "Le projet MoS-T vise à développer des méthodes innovantes pour la modélisation de séries spatio-temporelles en s'appuyant sur des graphes et des réseaux de neurones sur graphe (GNN). L'objectif est de proposer des approches génériques exploitant les relations spatiales et temporelles entre les données pour améliorer la prédiction, la classification et la détection d'anomalies.",
+    "about_text": "Le projet MoS-T vise à rechercher et visualiser des motifs spatio-temporels fréquents dans de grands graphes. L'objectif est de développer des méthodes innovantes combinant fouille de graphes et réseaux de neurones profonds pour extraire des motifs significatifs et en proposer des représentations synthétiques et interprétables.",
     "keywords_title": "Mots-clés",
     "keywords": ["Séries temporelles", "Données spatio-temporelles", "Graphes", "Réseaux de neurones sur graphe", "GNN", "Apprentissage profond", "Prediction", "Classification"],
     "timeline_title": "Chronologie du projet",
@@ -67,9 +68,18 @@
     "datasets_title": "Jeux de données",
     "coming_soon": "Disponible prochainement."
   },
+  "comic": {
+    "title": "Le projet en BD",
+    "description": "Découvrez le projet MoS-T à travers une bande dessinée de vulgarisation scientifique.",
+    "page_of": "sur",
+    "prev": "Planche précédente",
+    "next": "Planche suivante",
+    "page_label": "Planche",
+    "cta": "Découvrir en BD"
+  },
   "contact": {
     "title": "Contact",
-    "pi_label": "Responsable scientifique",
+    "pi_label": "Coordinatrice du projet",
     "email_label": "Email",
     "address_label": "Adresse",
     "anr_ref": "Référence ANR : ANR-21-CE23-0015"
@@ -77,7 +87,7 @@
   "footer": {
     "funded_by": "Projet financé par",
     "anr_ref": "ANR-21-CE23-0015",
-    "copyright": "© 2022–2026 Projet MoS-T. Tous droits réservés."
+    "copyright": "© 2021–2026 Projet MoS-T. Tous droits réservés."
   },
   "common": {
     "read_more": "En savoir plus",

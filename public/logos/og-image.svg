@@ -12,7 +12,7 @@
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <text x="600" y="240" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-weight="800" font-size="90" fill="#04E4AC">MoS-T</text>
-  <text x="600" y="320" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-weight="500" font-size="32" fill="#ffffff">Modélisation de Séries Spatio-Temporelles</text>
-  <text x="600" y="380" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="22" fill="#888888">Projet ANR (2022–2026) • ANR-21-CE23-0015</text>
+  <text x="600" y="320" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-weight="500" font-size="32" fill="#ffffff">Motifs Spatio-Temporels</text>
+  <text x="600" y="380" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="22" fill="#888888">Projet ANR (2021–2026) • ANR-21-CE23-0015</text>
   <rect x="570" y="420" width="60" height="3" rx="1.5" fill="url(#accent)"/>
 </svg>

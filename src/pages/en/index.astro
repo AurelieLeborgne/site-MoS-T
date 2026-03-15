@@ -6,7 +6,8 @@ const lang = 'en';
 const keywords = t(lang, 'home.keywords') as string[];
 
 const timeline = [
-  { year: '2022', label: 'Project kickoff' },
+  { year: '2021', label: 'Project kickoff' },
+  { year: '2022', label: 'First developments' },
   { year: '2023', label: 'First results, publications' },
   { year: '2024', label: 'GNN developments, conferences' },
   { year: '2025', label: 'Application validation, datasets' },
@@ -28,8 +29,8 @@ const timeline = [
         "url": "https://anr.fr/"
       },
       "identifier": "ANR-21-CE23-0015",
-      "startDate": "2022",
-      "endDate": "2026"
+      "startDate": "2021-10",
+      "endDate": "2026-06"
     })} />
   </Fragment>
 
@@ -37,7 +38,7 @@ const timeline = [
   <section class="relative min-h-[80vh] flex items-center overflow-hidden pt-16">
     <div class="absolute inset-0 bg-gradient-to-br from-dark via-primary-900 to-darker"></div>
     <div class="absolute inset-0 opacity-20">
-      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <pattern id="graph-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
             <circle cx="40" cy="40" r="2" fill="#04E4AC" />
@@ -61,19 +62,30 @@ const timeline = [
       <div class="mb-8">
         <img src="/site-MoS-T/logos/most-blanc.svg" alt="MoS-T" class="h-16 md:h-20 mx-auto" width="300" height="80" />
       </div>
-      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-        {t(lang, 'hero.subtitle')}
+      <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-6 leading-relaxed max-w-3xl mx-auto">
+        Mining and visualization of frequent <span class="text-primary-400">S</span>patio-<span class="text-primary-400">T</span>emporal <span class="text-primary-400">Mo</span>tifs in a large graph
       </h1>
-      <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-        {t(lang, 'hero.description')}
-      </p>
+      <a
+        href="https://anr.fr/Projet-ANR-21-CE23-0015"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block text-base md:text-lg text-gray-400 hover:text-primary-400 transition-colors mb-10"
+      >
+        ANR Project (Oct. 2021 – June 2026)<span class="sr-only"> (opens in new window)</span>
+      </a>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/site-MoS-T/en/research/"
           class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary-500 to-lime-500 text-dark font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5"
         >
           {t(lang, 'hero.cta_research')}
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a
+          href="/site-MoS-T/en/comic/"
+          class="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300"
+        >
+          {t(lang, 'comic.cta')}
         </a>
         <a
           href="/site-MoS-T/en/publications/"
@@ -96,6 +108,49 @@ const timeline = [
         <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
           {t(lang, 'home.about_text')}
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comic banner -->
+  <section class="py-12 bg-gradient-to-r from-primary-900 via-dark to-primary-900 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <pattern id="comic-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="10" cy="10" r="1.5" fill="#B8F231" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#comic-dots)" />
+      </svg>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <!-- Preview thumbnails -->
+        <div class="flex gap-3 shrink-0">
+          <div class="w-28 h-40 md:w-36 md:h-52 rounded-xl overflow-hidden shadow-2xl shadow-primary-500/20 border-2 border-primary-500/30 rotate-[-3deg] hover:rotate-0 transition-transform duration-300">
+            <img src="/site-MoS-T/images/comic/1.png" alt="Comic page 1" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="w-28 h-40 md:w-36 md:h-52 rounded-xl overflow-hidden shadow-2xl shadow-lime-500/20 border-2 border-lime-500/30 rotate-[2deg] hover:rotate-0 transition-transform duration-300 hidden sm:block">
+            <img src="/site-MoS-T/images/comic/2.png" alt="Comic page 2" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="w-28 h-40 md:w-36 md:h-52 rounded-xl overflow-hidden shadow-2xl shadow-primary-500/20 border-2 border-primary-500/30 rotate-[-1deg] hover:rotate-0 transition-transform duration-300 hidden md:block">
+            <img src="/site-MoS-T/images/comic/3.png" alt="Comic page 3" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+        <!-- Text + CTA -->
+        <div class="text-center md:text-left">
+          <span class="inline-block px-3 py-1 rounded-full bg-lime-500/20 text-lime-400 text-xs font-semibold uppercase tracking-wider mb-4">New</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{t(lang, 'comic.title')}</h2>
+          <p class="text-lg text-gray-300 mb-6 max-w-lg">{t(lang, 'comic.description')}</p>
+          <a
+            href="/site-MoS-T/en/comic/"
+            class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-primary-500 to-lime-500 text-dark font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 hover:-translate-y-0.5"
+          >
+            {t(lang, 'comic.cta')}
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>

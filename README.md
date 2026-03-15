@@ -1,6 +1,6 @@
 # MoS-T — Site web du projet
 
-Site vitrine du projet ANR **MoS-T** (Modélisation de Séries Spatio-Temporelles), construit avec [Astro](https://astro.build/) et [Tailwind CSS](https://tailwindcss.com/), déployé sur GitHub Pages.
+Site vitrine du projet ANR **MoS-T** (Motifs Spatio-Temporels), construit avec [Astro](https://astro.build/) et [Tailwind CSS](https://tailwindcss.com/), déployé sur GitHub Pages.
 
 ## Prérequis
 

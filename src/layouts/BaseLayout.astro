@@ -63,8 +63,11 @@ const enUrl = getAlternateUrl(Astro.url, 'en');
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-light text-dark dark:bg-darker dark:text-gray-100 font-sans antialiased transition-colors duration-300">
+    <a href="#main-content" class="skip-link">
+      {lang === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}
+    </a>
     <Navbar lang={lang} currentPath={currentPath} />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer lang={lang} />

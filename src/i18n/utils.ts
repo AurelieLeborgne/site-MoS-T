@@ -48,6 +48,8 @@ const routeMap: Record<string, Record<Lang, string>> = {
   '/ressources/': { fr: '/ressources/', en: '/resources/' },
   '/resources/': { fr: '/ressources/', en: '/resources/' },
   '/contact/': { fr: '/contact/', en: '/contact/' },
+  '/bd/': { fr: '/bd/', en: '/comic/' },
+  '/comic/': { fr: '/bd/', en: '/comic/' },
 };
 
 export function getAlternateUrl(currentUrl: URL, targetLang: Lang): string {

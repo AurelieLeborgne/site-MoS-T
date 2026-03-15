@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "MoS-T — Modeling Spatio-Temporal Series",
-    "description": "ANR Project MoS-T: Modeling Spatio-Temporal Series using graphs and graph neural networks."
+    "title": "MoS-T — Spatio-Temporal Patterns",
+    "description": "ANR Project MoS-T: Mining and visualization of frequent spatio-temporal patterns in large graphs."
   },
   "nav": {
     "home": "Home",
@@ -10,17 +10,18 @@
     "publications": "Publications",
     "events": "Events",
     "resources": "Resources",
+    "comic": "Comic",
     "contact": "Contact"
   },
   "hero": {
-    "subtitle": "Modeling Spatio-Temporal Series",
-    "description": "ANR Project (2022–2026) — Modeling spatio-temporal series using graphs and graph neural networks.",
+    "subtitle": "Spatio-Temporal Patterns",
+    "description": "ANR Project (Oct. 2021 – June 2026) — Mining and visualization of frequent spatio-temporal patterns in large graphs.",
     "cta_publications": "View publications",
     "cta_research": "Discover the project"
   },
   "home": {
     "about_title": "About the project",
-    "about_text": "The MoS-T project aims to develop innovative methods for modeling spatio-temporal series based on graphs and graph neural networks (GNN). The goal is to propose generic approaches leveraging spatial and temporal relationships in data to improve prediction, classification, and anomaly detection.",
+    "about_text": "The MoS-T project aims to discover and visualize frequent spatio-temporal patterns in large graphs. The goal is to develop innovative methods combining graph mining and deep neural networks to extract meaningful patterns and provide synthetic, interpretable representations.",
     "keywords_title": "Keywords",
     "keywords": ["Time series", "Spatio-temporal data", "Graphs", "Graph neural networks", "GNN", "Deep learning", "Prediction", "Classification"],
     "timeline_title": "Project timeline",
@@ -67,9 +68,18 @@
     "datasets_title": "Datasets",
     "coming_soon": "Coming soon."
   },
+  "comic": {
+    "title": "The project in comics",
+    "description": "Discover the MoS-T project through a scientific outreach comic strip.",
+    "page_of": "of",
+    "prev": "Previous page",
+    "next": "Next page",
+    "page_label": "Page",
+    "cta": "Discover in comics"
+  },
   "contact": {
     "title": "Contact",
-    "pi_label": "Principal investigator",
+    "pi_label": "Project coordinator",
     "email_label": "Email",
     "address_label": "Address",
     "anr_ref": "ANR Reference: ANR-21-CE23-0015"
@@ -77,7 +87,7 @@
   "footer": {
     "funded_by": "Funded by",
     "anr_ref": "ANR-21-CE23-0015",
-    "copyright": "© 2022–2026 MoS-T Project. All rights reserved."
+    "copyright": "© 2021–2026 MoS-T Project. All rights reserved."
   },
   "common": {
     "read_more": "Read more",
