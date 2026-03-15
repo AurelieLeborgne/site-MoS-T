@@ -98,19 +98,21 @@ html, body {
   outline-offset: 2px;
 }
 
-/* Comic fullscreen mode */
-#comic-reader:fullscreen,
-#comic-reader:-webkit-full-screen {
+/* Comic immersive/fullscreen mode — works on all devices including iOS */
+#comic-reader.immersive-reader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
   background: #000;
   display: flex;
   flex-direction: column;
   padding: 0;
   max-width: 100%;
   overflow: hidden;
+  border-radius: 0;
 }
 
-#comic-reader:fullscreen > div,
-#comic-reader:-webkit-full-screen > div {
+#comic-reader.immersive-reader > div {
   width: 100%;
   flex: 1;
   min-height: 0;
@@ -118,12 +120,9 @@ html, body {
   flex-direction: column;
 }
 
-#comic-reader:fullscreen .rounded-xl,
-#comic-reader:fullscreen .rounded-2xl,
-#comic-reader:fullscreen .sm\:rounded-2xl,
-#comic-reader:-webkit-full-screen .rounded-xl,
-#comic-reader:-webkit-full-screen .rounded-2xl,
-#comic-reader:-webkit-full-screen .sm\:rounded-2xl {
+#comic-reader.immersive-reader .rounded-xl,
+#comic-reader.immersive-reader .rounded-2xl,
+#comic-reader.immersive-reader .sm\:rounded-2xl {
   border-radius: 0;
   border: none;
   box-shadow: none;
@@ -132,8 +131,7 @@ html, body {
   min-height: 0;
 }
 
-#comic-reader:fullscreen [style*="aspect-ratio"],
-#comic-reader:-webkit-full-screen [style*="aspect-ratio"] {
+#comic-reader.immersive-reader [style*="aspect-ratio"] {
   aspect-ratio: unset !important;
   position: relative;
   height: 100%;
@@ -141,8 +139,7 @@ html, body {
   background: #000;
 }
 
-#comic-reader:fullscreen img.comic-page,
-#comic-reader:-webkit-full-screen img.comic-page {
+#comic-reader.immersive-reader img.comic-page {
   position: absolute;
   inset: 0;
   object-fit: contain;
@@ -150,36 +147,32 @@ html, body {
   height: 100%;
 }
 
-#comic-reader:fullscreen .mt-3,
-#comic-reader:-webkit-full-screen .mt-3 {
-  background: rgba(0, 0, 0, 0.8);
+#comic-reader.immersive-reader .mt-3 {
+  background: rgba(0, 0, 0, 0.85);
   padding: 0.5rem 1rem;
   margin: 0;
   flex-shrink: 0;
 }
 
-#comic-reader:fullscreen .mt-3 span,
-#comic-reader:fullscreen .mt-3 button span,
-#comic-reader:-webkit-full-screen .mt-3 span,
-#comic-reader:-webkit-full-screen .mt-3 button span {
+#comic-reader.immersive-reader .mt-3 span,
+#comic-reader.immersive-reader .mt-3 button span {
   color: #fff;
 }
 
-#comic-reader:fullscreen .bg-gray-200,
-#comic-reader:-webkit-full-screen .bg-gray-200 {
+#comic-reader.immersive-reader .bg-gray-200 {
   background: #333;
 }
 
-#comic-reader:fullscreen button[id="comic-prev"],
-#comic-reader:fullscreen button[id="comic-next"],
-#comic-reader:-webkit-full-screen button[id="comic-prev"],
-#comic-reader:-webkit-full-screen button[id="comic-next"] {
+#comic-reader.immersive-reader button[id="comic-prev"],
+#comic-reader.immersive-reader button[id="comic-next"] {
   opacity: 0.7;
 }
 
-#comic-reader:fullscreen button[id="comic-prev"]:hover,
-#comic-reader:fullscreen button[id="comic-next"]:hover,
-#comic-reader:-webkit-full-screen button[id="comic-prev"]:hover,
-#comic-reader:-webkit-full-screen button[id="comic-next"]:hover {
+#comic-reader.immersive-reader button[id="comic-prev"]:hover,
+#comic-reader.immersive-reader button[id="comic-next"]:hover {
   opacity: 1;
+}
+
+body.immersive-open {
+  overflow: hidden;
 }

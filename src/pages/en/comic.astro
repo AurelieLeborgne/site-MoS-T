@@ -37,6 +37,17 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
 
     <!-- Comic reader -->
     <section id="comic-reader" class="max-w-6xl mx-auto px-1 sm:px-4 lg:px-8">
+      <!-- Close button (visible only in immersive mode) -->
+      <button
+        id="comic-close"
+        type="button"
+        class="hidden absolute top-3 right-3 z-50 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center backdrop-blur-sm transition-all"
+        aria-label={t(lang, 'comic.exit_fullscreen') as string}
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
       <div class="relative">
         <!-- Comic display -->
         <div class="relative bg-white dark:bg-dark rounded-xl sm:rounded-2xl border border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden">
@@ -172,7 +183,7 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
     document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowLeft') showPage(current - 1);
       if (e.key === 'ArrowRight') showPage(current + 1);
-      if (e.key === 'Escape' && isFullscreen()) exitFullscreen();
+      if (e.key === 'Escape' && isImmersive) toggleImmersive();
     });
 
     // Swipe support
@@ -187,34 +198,21 @@ const pages = Array.from({ length: totalPages }, (_, i) => ({
       }
     }, { passive: true });
 
-    // Fullscreen
-    function enterFullscreen(el) {
-      if (el.requestFullscreen) return el.requestFullscreen();
-      if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
-      return Promise.reject();
-    }
-    function exitFullscreen() {
-      if (document.exitFullscreen) return document.exitFullscreen();
-      if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
-    }
-    function isFullscreen() {
-      return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    // Immersive mode (CSS-based, works on all devices including iOS)
+    var isImmersive = false;
+    var closeBtn = document.getElementById('comic-close');
+
+    function toggleImmersive() {
+      isImmersive = !isImmersive;
+      reader.classList.toggle('immersive-reader', isImmersive);
+      document.body.classList.toggle('immersive-open', isImmersive);
+      closeBtn.classList.toggle('hidden', !isImmersive);
+      closeBtn.classList.toggle('flex', isImmersive);
+      if (fsLabel) fsLabel.textContent = isImmersive ? exitFullscreenLabel : fullscreenLabel;
     }
 
-    fsBtn.addEventListener('click', function() {
-      if (!isFullscreen()) {
-        enterFullscreen(reader).catch(function() {});
-      } else {
-        exitFullscreen();
-      }
-    });
-
-    function onFsChange() {
-      var isFs = isFullscreen();
-      if (fsLabel) fsLabel.textContent = isFs ? exitFullscreenLabel : fullscreenLabel;
-    }
-    document.addEventListener('fullscreenchange', onFsChange);
-    document.addEventListener('webkitfullscreenchange', onFsChange);
+    fsBtn.addEventListener('click', toggleImmersive);
+    closeBtn.addEventListener('click', toggleImmersive);
 
     // Init
     showPage(0);
