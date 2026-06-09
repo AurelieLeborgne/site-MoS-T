@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n/utils';
 
 const lang = 'en';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout lang={lang} currentPath="/resources/" title={`${t(lang, 'resources.title')} — MoS-T`} description="Open-source resources from the MoS-T project: code and datasets for spatio-temporal series modeling.">
@@ -15,26 +16,38 @@ const lang = 'en';
     </section>
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white dark:bg-dark rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-lime-500 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-          </div>
-          <h2 class="text-2xl font-bold text-dark dark:text-white mb-4">{t(lang, 'resources.code_title')}</h2>
-          <p class="text-gray-500 dark:text-gray-400">{t(lang, 'resources.coming_soon')}</p>
+      <!-- Open-source code -->
+      <div class="bg-white dark:bg-dark rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-lime-500 flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
         </div>
+        <h2 class="text-2xl font-bold text-dark dark:text-white mb-6">{t(lang, 'resources.code_title')}</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <a href="https://github.com/julienpontabry/fstg_toolkit" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-colors group shadow-sm">
+            <div class="w-24 h-24 flex-shrink-0 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-1">
+              <img src={`${base}logos/fstg-toolkit.png`} alt="" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-primary-600 dark:text-primary-400 group-hover:underline font-semibold text-lg">FSTG Toolkit</span>
+          </a>
+          <a href="https://github.com/DrAssaadZ/Pattern-Centric-Framework-for-Hierarchical-Representation-of-Spatiotemporal-Graphs" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-colors group shadow-sm">
+            <div class="w-24 h-24 flex-shrink-0 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center p-1">
+              <img src={`${base}logos/pattern-centric-framework.png`} alt="" class="w-full h-full object-contain" />
+            </div>
+            <span class="text-primary-600 dark:text-primary-400 group-hover:underline font-semibold text-lg">Pattern Centric Framework for Hierarchical Representation of Spatiotemporal Graphs</span>
+          </a>
+        </div>
+      </div>
 
-        <div class="bg-white dark:bg-dark rounded-2xl p-8 border border-gray-100 dark:border-gray-800 shadow-lg shadow-primary-500/5">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-lime-500 to-primary-500 flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-            </svg>
-          </div>
-          <h2 class="text-2xl font-bold text-dark dark:text-white mb-4">{t(lang, 'resources.datasets_title')}</h2>
-          <p class="text-gray-500 dark:text-gray-400">{t(lang, 'resources.coming_soon')}</p>
+      <!-- Datasets (compact) -->
+      <div class="rounded-xl px-6 py-4 border border-gray-100 dark:border-gray-800 flex items-center gap-3">
+        <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-gradient-to-br from-lime-500 to-primary-500 flex items-center justify-center">
+          <svg class="w-4 h-4 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+          </svg>
         </div>
+        <span class="text-sm text-gray-500 dark:text-gray-400"><strong class="text-dark dark:text-white">{t(lang, 'resources.datasets_title')}</strong> — {t(lang, 'resources.coming_soon')}</span>
       </div>
     </section>
   </div>

@@ -1,11 +1,15 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n/utils';
 
 const lang = 'en';
 const base = import.meta.env.BASE_URL;
 
-const totalPages = 10;
+// Auto-detect pages from public/images/comic/
+const comicDir = path.resolve('public/images/comic');
+const totalPages = fs.readdirSync(comicDir).filter(f => f.endsWith('.png')).length;
 const pages = Array.from({ length: totalPages }, (_, i) => ({
   src: `${base}/images/comic/${i + 1}.png`,
   alt: `${t(lang, 'comic.page_label')} ${i + 1}`,
